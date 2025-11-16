@@ -1,0 +1,146 @@
+<!-- Hero Section -->
+<section class="page-hero">
+  <div class="container">
+    <h1>Il Nostro Studio</h1>
+    <p class="hero-subtitle">
+      Un punto di riferimento per l'odontoiatria moderna,
+      dove professionalità e tecnologia si incontrano per il tuo benessere.
+    </p>
+  </div>
+</section>
+
+<!-- Story Section -->
+<section class="section story-section">
+  <div class="container">
+    <div class="story-content">
+      <div class="story-text">
+        <h2>La Nostra Storia</h2>
+        <p>
+          Lo studio dentistico nasce dalla passione e dedizione del {{ STUDIO_INFO.director }},
+          che da oltre 20 anni si impegna a offrire cure dentistiche di eccellenza nel cuore
+          di {{ CONTACT_INFO.address.city }}.
+        </p>
+        <p>
+          La nostra filosofia si basa su tre pilastri fondamentali: l'utilizzo di tecnologie all'avanguardia,
+          un approccio personalizzato per ogni paziente e un ambiente confortevole che mette a proprio agio
+          anche chi ha più timore del dentista.
+        </p>
+        <p>
+          Nel corso degli anni abbiamo costruito un team di professionisti altamente qualificati,
+          ciascuno specializzato in diverse aree dell'odontoiatria, per poter offrire un servizio
+          completo e multidisciplinare.
+        </p>
+      </div>
+      <div class="story-image">
+        <div class="image-placeholder">
+          <span [innerHTML]="icons.building | safeHtml"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Values Section -->
+<section class="section values-section">
+  <div class="container">
+    <div class="section-header text-center">
+      <h2>I Nostri Valori</h2>
+      <p class="section-subtitle">
+        Principi che guidano il nostro lavoro quotidiano e il rapporto con i nostri pazienti.
+      </p>
+    </div>
+
+    <div class="values-grid">
+      @for (value of values; track value.title) {
+        <div class="value-card">
+          <div class="value-icon">
+            <span [innerHTML]="getIcon(value.icon) | safeHtml"></span>
+          </div>
+          <h3>{{ value.title }}</h3>
+          <p>{{ value.description }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Team Section -->
+<section class="section team-section">
+  <div class="container">
+    <div class="section-header text-center">
+      <h2>Il Nostro Team</h2>
+      <p class="section-subtitle">
+        Professionisti qualificati e appassionati al servizio del tuo sorriso.
+      </p>
+    </div>
+
+    <div class="team-grid">
+      @for (member of teamMembers; track member.name) {
+        <div class="team-card">
+          <div class="team-photo">
+            <div class="photo-placeholder">
+              <span [innerHTML]="icons.user | safeHtml"></span>
+            </div>
+          </div>
+          <div class="team-info">
+            <h3>{{ member.name }}</h3>
+            <p class="team-role">{{ member.role }}</p>
+            <p class="team-specialization">{{ member.specialization }}</p>
+            <p class="team-description">{{ member.description }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Technology Section -->
+<section class="section tech-section">
+  <div class="container">
+    <div class="tech-content">
+      <div class="tech-text">
+        <h2>Tecnologie All'Avanguardia</h2>
+        <p>
+          Investiamo costantemente in tecnologie moderne per offrire trattamenti
+          più precisi, confortevoli ed efficaci. La nostra strumentazione è di ultima
+          generazione e ci permette di diagnosticare e curare con la massima accuratezza.
+        </p>
+        <ul class="tech-list">
+          @for (tech of technologies; track tech) {
+            <li>
+              <span [innerHTML]="icons.checkmark | safeHtml"></span>
+              {{ tech }}
+            </li>
+          }
+        </ul>
+      </div>
+      <div class="tech-image">
+        <div class="image-placeholder">
+          <span [innerHTML]="icons.monitor | safeHtml"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Gallery Section -->
+<section class="section gallery-section">
+  <div class="container">
+    <div class="section-header text-center">
+      <h2>Lo Studio in Immagini</h2>
+      <p class="section-subtitle">
+        Un ambiente moderno, luminoso e accogliente progettato per il tuo comfort.
+      </p>
+    </div>
+
+    <div class="gallery-grid">
+      @for (i of [1, 2, 3, 4]; track i) {
+        <div class="gallery-item">
+          <div class="gallery-placeholder">
+            <span [innerHTML]="icons.image | safeHtml"></span>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

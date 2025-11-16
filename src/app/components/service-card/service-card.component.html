@@ -1,0 +1,14 @@
+<a [routerLink]="['/servizi', service.slug]" class="service-card">
+  <div class="service-icon">
+    <span [innerHTML]="getIcon(service.icona) | safeHtml"></span>
+  </div>
+
+  <div class="service-content">
+    <h3>{{ service.nome }}</h3>
+    <p>{{ service.descrizioneBreve }}</p>
+    <span class="service-link">
+      Scopri di più
+      <span [innerHTML]="icons.arrowRight | safeHtml"></span>
+    </span>
+  </div>
+</a>

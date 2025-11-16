@@ -1,0 +1,50 @@
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <!-- Info Studio -->
+      <div class="footer-section">
+        <div class="footer-logo">
+          <span [innerHTML]="icons.logo | safeHtml"></span>
+          <span>{{ studioInfo.director }}</span>
+        </div>
+        <p class="footer-description">
+          {{ studioInfo.tagline }}. Offriamo cure dentistiche di qualità
+          in un ambiente moderno e confortevole.
+        </p>
+      </div>
+
+      <!-- Links -->
+      <div class="footer-section">
+        <h4>Menu</h4>
+        <ul class="footer-links">
+          <li><a routerLink="/">Home</a></li>
+          <li><a routerLink="/studio">Studio</a></li>
+          <li><a routerLink="/contatti">Contatti</a></li>
+        </ul>
+      </div>
+
+      <!-- Contatti -->
+      <div class="footer-section">
+        <h4>Contatti</h4>
+        <ul class="footer-contact">
+          <li>
+            <span [innerHTML]="icons.phone | safeHtml"></span>
+            <a href="tel:{{ contactInfo.phone }}">{{ contactInfo.phone }}</a>
+          </li>
+          <li>
+            <span [innerHTML]="icons.email | safeHtml"></span>
+            <a href="mailto:{{ contactInfo.email }}">{{ contactInfo.email }}</a>
+          </li>
+          <li>
+            <span [innerHTML]="icons.location | safeHtml"></span>
+            <span>{{ contactInfo.address.full }}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; {{ currentYear }} {{ studioInfo.director }}. Tutti i diritti riservati.</p>
+    </div>
+  </div>
+</footer>

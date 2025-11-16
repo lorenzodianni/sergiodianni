@@ -1,0 +1,131 @@
+<!-- Hero Section -->
+<section class="page-hero">
+  <div class="container">
+    <h1>Contatti</h1>
+    <p class="hero-subtitle">
+      Siamo qui per rispondere a tutte le tue domande e aiutarti a prenderti cura del tuo sorriso.
+      Contattaci per prenotare una visita o per maggiori informazioni.
+    </p>
+  </div>
+</section>
+
+<!-- Contact Info Section -->
+<section class="section contact-section">
+  <div class="container">
+    <div class="contact-grid">
+      <!-- Contact Cards -->
+      <div class="contact-cards">
+        <div class="contact-card">
+          <div class="card-icon">
+            <span [innerHTML]="icons.phone | safeHtml"></span>
+          </div>
+          <div class="card-info">
+            <h3>Telefono</h3>
+            <p>Chiamaci durante gli orari di apertura per prenotare una visita o per informazioni.</p>
+            <a href="tel:{{ contactInfo.phone }}" class="contact-link">{{ contactInfo.phone }}</a>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <div class="card-icon">
+            <span [innerHTML]="icons.email | safeHtml"></span>
+          </div>
+          <div class="card-info">
+            <h3>Email</h3>
+            <p>Scrivici via email per richieste di informazioni o per fissare un appuntamento.</p>
+            <a href="mailto:{{ contactInfo.email }}" class="contact-link">{{ contactInfo.email }}</a>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <div class="card-icon">
+            <span [innerHTML]="icons.location | safeHtml"></span>
+          </div>
+          <div class="card-info">
+            <h3>Indirizzo</h3>
+            <p>Vieni a trovarci presso il nostro studio.</p>
+            <p class="contact-link">{{ contactInfo.address.full }}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Schedule Card -->
+      <div class="schedule-card">
+        <h3>Orari di Apertura</h3>
+        <div class="schedule-list">
+          @for (item of schedule; track item.day) {
+            <div class="schedule-item" [class.closed]="item.hours === 'Chiuso'">
+              <span class="schedule-day">{{ item.day }}</span>
+              <span class="schedule-hours">{{ item.hours }}</span>
+            </div>
+          }
+        </div>
+        <div class="schedule-note">
+          <span [innerHTML]="icons.info | safeHtml"></span>
+          <p>Si riceve su appuntamento. Per urgenze chiamare durante gli orari di apertura.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Map Section -->
+<section class="section map-section">
+  <div class="container">
+    <h2 class="text-center mb-lg">Come Raggiungerci</h2>
+    <div class="map-container">
+      <div class="map-placeholder" (click)="openMap()">
+        <p class="map-address">{{ contactInfo.address.full }}</p>
+      </div>
+    </div>
+    <div class="map-info">
+      <div class="transport-info">
+        <div class="transport-item">
+          <span [innerHTML]="icons.bus | safeHtml"></span>
+          <div>
+            <h4>Mezzi Pubblici</h4>
+            <p>Metro M1 - Tram 1, 2, 14</p>
+          </div>
+        </div>
+        <div class="transport-item">
+          <span [innerHTML]="icons.car | safeHtml"></span>
+          <div>
+            <h4>Parcheggio</h4>
+            <p>Parcheggio convenzionato a 100m</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Additional Info Section -->
+<section class="section info-section">
+  <div class="container">
+    <div class="info-grid">
+      <div class="info-block">
+        <h3>Informazioni Legali</h3>
+        <ul class="info-list">
+          <li>
+            <span class="info-label">Partita IVA:</span>
+            <span>{{ contactInfo.partitaIva }}</span>
+          </li>
+          <li>
+            <span class="info-label">PEC:</span>
+            <span>{{ contactInfo.pec }}</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="info-block">
+        <h3>Prima Visita</h3>
+        <p>
+          La prima visita è fondamentale per conoscerci e valutare insieme le tue esigenze.
+          Durante l'appuntamento effettueremo un esame completo del cavo orale e discuteremo
+          le possibili soluzioni terapeutiche.
+        </p>
+        <a href="tel:{{ contactInfo.phone }}" class="btn btn-primary">Prenota la Prima Visita</a>
+      </div>
+    </div>
+  </div>
+</section>

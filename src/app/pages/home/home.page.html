@@ -1,0 +1,96 @@
+<!-- Hero Section -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>{{ studioInfo.tagline }}</h1>
+        <p class="hero-description">
+          Lo studio dentistico di eccellenza a {{ CONTACT_INFO.address.city }}. Offriamo cure dentistiche di alta
+          qualità
+          in un ambiente moderno, confortevole e accogliente. Il benessere del tuo sorriso
+          è la nostra missione.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services Section -->
+<section class="section services-section">
+  <div class="container">
+    <div class="section-header text-center">
+      <h2>I Nostri Servizi</h2>
+      <p class="section-subtitle">
+        Offriamo un'ampia gamma di trattamenti dentistici per prenderci cura
+        del tuo sorriso in ogni sua necessità.
+      </p>
+    </div>
+
+    <div class="services-grid">
+      @for (service of services; track service.slug) {
+        <app-service-card [service]="service"/>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Why Choose Us Section -->
+<section class="section why-section">
+  <div class="container">
+    <div class="section-header text-center">
+      <h2>Perché Scegliere il Nostro Studio</h2>
+      <p class="section-subtitle">
+        Ci impegniamo a offrire la migliore esperienza odontoiatrica possibile,
+        combinando professionalità, tecnologia e cura del paziente.
+      </p>
+    </div>
+
+    <div class="features-grid">
+      @for (feature of features; track feature.title) {
+        <div class="feature-card">
+          <div class="feature-icon">
+            <span [innerHTML]="getIcon(feature.icon) | safeHtml"></span>
+          </div>
+          <h3>{{ feature.title }}</h3>
+          <p>{{ feature.description }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Team Preview Section -->
+<section class="section team-preview-section">
+  <div class="container">
+    <div class="team-preview">
+      <div class="team-image">
+        <div class="image-placeholder">
+          <span [innerHTML]="icons.user | safeHtml"></span>
+        </div>
+      </div>
+      <div class="team-content">
+        <h2>{{ studioInfo.director }}</h2>
+        <p class="team-role">{{ studioInfo.directorTitle }}</p>
+        <p class="team-description">
+          Con oltre 20 anni di esperienza nel campo dell'odontoiatria, il {{ studioInfo.director }}
+          guida il nostro team con passione e dedizione. Specializzato in implantologia e
+          odontoiatria estetica, si impegna a garantire ad ogni paziente il miglior trattamento
+          possibile, utilizzando le tecniche più moderne e innovative.
+        </p>
+        <a routerLink="/studio" class="btn btn-secondary">Scopri il Team</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="section cta-section">
+  <div class="container">
+    <div class="cta-card">
+      <h2>Pronto a Migliorare il Tuo Sorriso?</h2>
+      <p>Prenota una visita oggi stesso e scopri come possiamo aiutarti a raggiungere il sorriso che hai sempre
+        desiderato.</p>
+      <a href="tel:{{ contactInfo.phone }}" class="btn btn-primary btn-large">Prenota una Visita</a>
+    </div>
+  </div>
+</section>

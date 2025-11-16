@@ -1,0 +1,150 @@
+@if (service(); as srv) {
+  <!-- Hero Section -->
+  <section class="service-hero">
+    <div class="container">
+      <div class="breadcrumb">
+        <a routerLink="/">Servizi</a>
+        <span>/</span>
+        <span>{{ srv.nome }}</span>
+      </div>
+      <h1>{{ srv.nome }}</h1>
+      <p class="hero-description">{{ srv.descrizioneBreve }}</p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class="section service-content-section">
+    <div class="container">
+      <div class="service-layout">
+        <!-- Main Content -->
+        <div class="service-main">
+          <!-- Description -->
+          <div class="content-block">
+            <h2>Descrizione del Servizio</h2>
+            <p>{{ srv.descrizioneCompleta }}</p>
+          </div>
+
+          <!-- Benefits -->
+          <div class="content-block">
+            <h2>Benefici e Vantaggi</h2>
+            <ul class="benefits-list">
+              @for (beneficio of srv.benefici; track beneficio) {
+                <li>
+                  <span [innerHTML]="icons.checkmark | safeHtml"></span>
+                  <span>{{ beneficio }}</span>
+                </li>
+              }
+            </ul>
+          </div>
+
+          <!-- Process -->
+          <div class="content-block">
+            <h2>Come Funziona il Trattamento</h2>
+            <div class="process-steps">
+              @for (step of srv.processo; track step; let idx = $index) {
+                <div class="process-step">
+                  <div class="step-number">{{ idx + 1 }}</div>
+                  <p>{{ step }}</p>
+                </div>
+              }
+            </div>
+          </div>
+
+          <!-- FAQ -->
+          <div class="content-block">
+            <h2>Domande Frequenti</h2>
+            <div class="faq-list">
+              <div class="faq-item">
+                <h4>Il trattamento è doloroso?</h4>
+                <p>
+                  La maggior parte dei nostri trattamenti è indolore grazie all'utilizzo di
+                  anestesia locale e tecniche moderne. Il nostro obiettivo è garantire il
+                  massimo comfort durante ogni procedura.
+                </p>
+              </div>
+              <div class="faq-item">
+                <h4>Quanto dura il trattamento?</h4>
+                <p>
+                  La durata varia in base alla complessità del caso specifico. Durante la
+                  prima visita valuteremo la situazione e ti forniremo un piano di trattamento
+                  dettagliato con tempistiche precise.
+                </p>
+              </div>
+              <div class="faq-item">
+                <h4>Quali garanzie offrite?</h4>
+                <p>
+                  Utilizziamo solo materiali certificati di altissima qualità e offriamo garanzia
+                  sui nostri lavori. Ogni trattamento viene eseguito secondo i più alti standard
+                  professionali.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="service-sidebar">
+          <!-- CTA Card -->
+          <div class="sidebar-card cta-card">
+            <h3>Prenota una Visita</h3>
+            <p>Contattaci per maggiori informazioni o per prenotare un appuntamento.</p>
+            <a href="tel:{{ contactInfo.phone }}" class="btn btn-primary">
+              <span [innerHTML]="icons.phone | safeHtml"></span>
+              Chiama Ora
+            </a>
+          </div>
+
+          <!-- Info Card -->
+          <div class="sidebar-card info-card">
+            <h4>Informazioni Utili</h4>
+            <div class="info-item">
+              <span [innerHTML]="icons.clock | safeHtml"></span>
+              <div>
+                <p class="info-label">Orari</p>
+                <p class="info-value">Lun-Ven: 9:00-19:00<br>Sab: 9:00-13:00</p>
+              </div>
+            </div>
+            <div class="info-item">
+              <span [innerHTML]="icons.location | safeHtml"></span>
+              <div>
+                <p class="info-label">Dove Siamo</p>
+                <p class="info-value">{{ CONTACT_INFO.address.full }}</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Related Services -->
+          <div class="sidebar-card related-card">
+            <h4>Altri Servizi</h4>
+            <div class="related-list">
+              @for (otherService of otherServices(); track otherService.slug) {
+                <a [routerLink]="['/servizi', otherService.slug]" class="related-item">
+                  <span>{{ otherService.nome }}</span>
+                  <span [innerHTML]="icons.arrowRight | safeHtml"></span>
+                </a>
+              }
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section bottom-cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Interessato a {{ srv.nome }}?</h2>
+        <p>Prenota una consulenza gratuita per valutare la soluzione migliore per te.</p>
+        <div class="cta-buttons">
+          <a href="tel:{{ contactInfo.phone }}" class="btn btn-primary btn-large">Prenota Ora</a>
+          <a routerLink="/contatti" class="btn btn-secondary btn-large">Contattaci</a>
+        </div>
+      </div>
+    </div>
+  </section>
+} @else {
+  <div class="container" style="padding: 4rem 0; text-align: center;">
+    <p>Caricamento...</p>
+  </div>
+}

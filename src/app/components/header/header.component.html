@@ -1,0 +1,38 @@
+<header class="header">
+  <div class="container">
+    <div class="header-content">
+      <!-- Logo -->
+      <a routerLink="/" class="logo" (click)="closeMenu()">
+        <span [innerHTML]="icons.logo | safeHtml"></span>
+        <span class="logo-text">{{ STUDIO_INFO.director }}</span>
+      </a>
+
+      <!-- Navigation Desktop -->
+      <nav class="nav-desktop">
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+        <a routerLink="/studio" routerLinkActive="active">Studio</a>
+        <a routerLink="/contatti" routerLinkActive="active">Contatti</a>
+      </nav>
+
+      <!-- Phone & CTA -->
+      <div class="header-actions">
+        <a href="tel:{{ contactInfo.phone }}" class="btn btn-primary">Prenota Visita</a>
+      </div>
+
+      <!-- Mobile Menu Toggle -->
+      <button class="menu-toggle" (click)="toggleMenu()" [class.active]="isMenuOpen()" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <nav class="nav-mobile" [class.open]="isMenuOpen()">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMenu()">Home</a>
+      <a routerLink="/studio" routerLinkActive="active" (click)="closeMenu()">Studio</a>
+      <a routerLink="/contatti" routerLinkActive="active" (click)="closeMenu()">Contatti</a>
+      <a href="tel:{{ contactInfo.phone }}" class="btn btn-primary mobile-cta" (click)="closeMenu()">Prenota Visita</a>
+    </nav>
+  </div>
+</header>
