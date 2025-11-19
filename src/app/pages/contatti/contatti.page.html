@@ -33,7 +33,7 @@
           <div class="card-info">
             <h3>Email</h3>
             <p>Scrivici via email per richieste di informazioni o per fissare un appuntamento.</p>
-            <a href="mailto:{{ contactInfo.email }}" class="contact-link">{{ contactInfo.email }}</a>
+            <a [innerHTML]="contactInfo.email | safeHtml" class="contact-link"></a>
           </div>
         </div>
 
