@@ -115,6 +115,18 @@
   background-color: var(--color-surface);
 }
 
+#team {
+  position: absolute;
+  left: 0;
+  bottom: 86px; // header height
+  height: 0;
+  width: 100%;
+
+  @media (max-width: 968px) {
+    bottom: 64px; // header height
+  }
+}
+
 .team-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
